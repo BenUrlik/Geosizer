@@ -5,18 +5,25 @@ using UnityEngine.UI;
 
 public class levelSpawner : MonoBehaviour
 {
-    public Button blockPrefab;
+    public GameObject panel;
+    public GameObject button;
+    public Vector2 screenBounds;
 
     // Start is called before the first frame update
     void Start()
     {
-        blockPrefab = GetComponent<Button>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void spawnBlock() {
+        GameObject newButton = Instantiate(button) as GameObject;
+        newButton.transform.SetParent(panel.transform, false);
     }
 
     public void findCenter() {
