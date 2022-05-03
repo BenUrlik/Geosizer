@@ -6,7 +6,7 @@ public class QuitButton : MonoBehaviour
 {
     public void quitGame() {
         // Makes the editor quit playing the game
-        UnityEditor.EditorApplication.isPlaying = false;
+        // UnityEditor.EditorApplication.isPlaying = false;
         // Makes the built version of the game quit
         Application.Quit();
     }
