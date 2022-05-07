@@ -6,6 +6,11 @@ TagManager:
   tags:
   - block
   - ball
+  - rightWall
+  - leftWall
+  - topWall
+  - bottomWall
+  - manager
   layers:
   - Default
   - TransparentFX
