@@ -13,7 +13,7 @@ public class manager : MonoBehaviour
     // Level Variables
     public float levelNum;
     public float blockCount;
-    public float ballCount;
+    public float defBallCount;
 
     // For spawning the balls
     public GameObject ball;
@@ -25,7 +25,7 @@ public class manager : MonoBehaviour
         score = 0.0f;   
         levelNum = 1.0f;
         blockCount = 6.0f;
-        ballCount = 1.0f;
+        defBallCount = 1.0f;
     }
 
     public void clickUpgrade() {
@@ -46,7 +46,11 @@ public class manager : MonoBehaviour
 
     // Spawns a new ball
     public void spawnBall() {
-        GameObject newBall = Instantiate(ball) as GameObject;
-        newBall.transform.SetParent(panel.transform, false);
+        if(score >= 10 && defBallCount < 10) {
+            GameObject newBall = Instantiate(ball) as GameObject;
+            newBall.transform.SetParent(panel.transform, false);
+            score = score - 10;
+            ++defBallCount;
+        }
     }
 }
