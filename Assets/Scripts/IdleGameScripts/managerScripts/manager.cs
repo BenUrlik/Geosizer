@@ -14,6 +14,11 @@ public class manager : MonoBehaviour
     public float levelNum;
     public float blockCount;
     public float defBallCount;
+    public float superBallCount;
+    public float ultraBallCount;
+
+    // Player clicker aspects
+    public float clickAssist;
 
     // For spawning the balls
     public GameObject ball;
@@ -26,6 +31,9 @@ public class manager : MonoBehaviour
         levelNum = 1.0f;
         blockCount = 6.0f;
         defBallCount = 1.0f;
+        superBallCount = 0.0f;
+        ultraBallCount = 0.0f;
+        clickAssist = 0.0f;
     }
 
     public void clickUpgrade() {
@@ -38,9 +46,9 @@ public class manager : MonoBehaviour
     }
 
     // Happens every time a ball collides with a block and when a player clicks to destroy a block
-    public void collisionUpdate() {
-        --blockCount;
-        ++score;
+    public void collisionUpdate(float damage) {
+        blockCount -= damage;
+        score += damage;
         moneyText.text = score.ToString();
     }
 
@@ -51,6 +59,26 @@ public class manager : MonoBehaviour
             newBall.transform.SetParent(panel.transform, false);
             score = score - 10;
             ++defBallCount;
+        }
+    }
+
+    // Spawns a new super ball
+    public void spawnSuperBall() {
+        if(score >= 20 && superBallCount < 10) {
+            GameObject newBall = Instantiate(ball) as GameObject;
+            newBall.transform.SetParent(panel.transform, false);
+            score = score - 20;
+            ++superBallCount;
+        }
+    }
+
+    // Spawns a new ultra ball
+    public void spawnUltraBall() {
+        if(score >= 30 && ultraBallCount < 10) {
+            GameObject newBall = Instantiate(ball) as GameObject;
+            newBall.transform.SetParent(panel.transform, false);
+            score = score - 30;
+            ++ultraBallCount;
         }
     }
 }

@@ -23,10 +23,10 @@ public class block : MonoBehaviour
     public void updateHitCount() { ++hitCounter; }
 
     public void playerClick() {
-        --hitCounter;
+        hitCounter -= 1 + managerScript.clickAssist;
 
-        if(hitCounter == 0.0f) {
-            managerScript.collisionUpdate();
+        if(hitCounter <= 0.0f) {
+            managerScript.collisionUpdate(1 + managerScript.clickAssist);
             Destroy(gameObject);
         }
         else { managerScript.clickUpdate(); }

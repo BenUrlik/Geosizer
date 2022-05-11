@@ -10,6 +10,7 @@ public class ball : MonoBehaviour
     public Vector2 screenBounds;
     public GameObject managerObj;
     public manager managerScript;
+    public bool isSuper = false;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -29,12 +30,15 @@ public class ball : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other) {
         if(other.collider.tag == "block") {
             block blockScript = other.gameObject.GetComponent<block>();
-            if(blockScript.hitCounter == 1.0f) {
+            // Default ball collision
+            if(!isSuper && blockScript.hitCounter == 1.0f) {
                 Destroy(other.gameObject);
-                managerScript.collisionUpdate();
+                managerScript.collisionUpdate(1);
             }
             else { blockScript.hitCounter--; }
         }
+        // If the ball does not collide with a block give it a random trajectory
+        // And add some speed
         else if(other.collider.tag == "bottomWall") { SetRandomTrajectory(); }
         else if(other.collider.tag == "topWall") { SetRandomTrajectory(); }
         else if(other.collider.tag == "rightWall") { SetRandomTrajectory(); }
