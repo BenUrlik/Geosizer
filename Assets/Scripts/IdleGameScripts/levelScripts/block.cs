@@ -20,10 +20,12 @@ public class block : MonoBehaviour
 
     void Update() { blockCountText.text = hitCounter.ToString(); }
 
-    public void updateHitCount() { ++hitCounter; }
+    public void updateHitCount() {
+        hitCounter += 1 + managerScript.clickAssist; 
+    }
 
     public void playerClick() {
-        hitCounter -= 1 + managerScript.clickAssist;
+        hitCounter -= (1.0f + managerScript.clickAssist);
 
         if(hitCounter <= 0.0f) {
             managerScript.collisionUpdate(1 + managerScript.clickAssist);
