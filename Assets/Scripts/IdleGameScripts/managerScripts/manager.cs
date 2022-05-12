@@ -36,7 +36,12 @@ public class manager : MonoBehaviour
         clickAssist = 0.0f;
     }
 
-    public void clickUpgrade() {}
+    public void clickUpgrade() { 
+        if(score >= 10 && clickAssist < 10) {
+            ++clickAssist; 
+            score -= 10;
+        }
+    }
 
     // Updates the blocks if the player clicks and it doesnt destroy the block
     public void clickUpdate() {
@@ -56,7 +61,7 @@ public class manager : MonoBehaviour
         if(score >= 10 && defBallCount < 10) {
             GameObject newBall = Instantiate(ball) as GameObject;
             newBall.transform.SetParent(panel.transform, false);
-            score = score - 10;
+            score -= 10;
             ++defBallCount;
 
             // Attempting to update the button text - Not working cause buttons dont instantiate after Start()
@@ -71,7 +76,7 @@ public class manager : MonoBehaviour
         if(score >= 25 && superBallCount < 10) {
             GameObject newBall = Instantiate(ball) as GameObject;
             Image colorImage = newBall.GetComponent<Image>();
-            Debug.Log(colorImage);
+            colorImage.color = new Color32(255,0,0, 255);
             newBall.transform.SetParent(panel.transform, false);
             score = score - 25;
             ++superBallCount;
@@ -82,6 +87,8 @@ public class manager : MonoBehaviour
     public void spawnUltraBall() {
         if(score >= 50 && ultraBallCount < 10) {
             GameObject newBall = Instantiate(ball) as GameObject;
+            Image colorImage = newBall.GetComponent<Image>();
+            colorImage.color = new Color32(0,255,0, 255);
             newBall.transform.SetParent(panel.transform, false);
             score = score - 50;
             ++ultraBallCount;

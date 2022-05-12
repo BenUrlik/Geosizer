@@ -18,12 +18,15 @@ public class block : MonoBehaviour
         blockCountText.text = hitCounter.ToString();
     }
 
+    // Constantly update the block text to the current hitcounter
     void Update() { blockCountText.text = hitCounter.ToString(); }
 
-    public void updateHitCount() {
-        hitCounter += 1 + managerScript.clickAssist; 
-    }
+    // public void updateHitCount() {
+    //     hitCounter += 1 + managerScript.clickAssist; 
+    // }
 
+    // Updates the block information when a player clicks one of the blocks
+    // Used in the OnClick() Function of the blocks
     public void playerClick() {
         hitCounter -= (1.0f + managerScript.clickAssist);
 

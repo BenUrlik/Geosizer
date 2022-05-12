@@ -31,11 +31,9 @@ public class ball : MonoBehaviour
         if(other.collider.tag == "block") {
             block blockScript = other.gameObject.GetComponent<block>();
             // Default ball collision
-            if(!isSuper && blockScript.hitCounter == 1.0f) {
-                Destroy(other.gameObject);
-                managerScript.collisionUpdate(1);
-            }
-            else { blockScript.hitCounter--; }
+            if(blockScript.hitCounter == 1.0f) { Destroy(other.gameObject); managerScript.collisionUpdate(1); }
+            else { blockScript.hitCounter--; managerScript.clickUpdate(); }
+            
         }
         // If the ball does not collide with a block give it a random trajectory
         // And add some speed
