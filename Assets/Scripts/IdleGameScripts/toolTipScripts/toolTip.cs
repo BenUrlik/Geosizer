@@ -19,9 +19,14 @@ public class toolTip : MonoBehaviour
     }
 
     public void setText(string content, string header = "") {
-        if(string.IsNullOrEmpty(header)) { headerField.gameObject.SetActive(false); }
-        else { headerField.gameObject.SetActive(true); headerField.text = header; }
-
+        if(string.IsNullOrEmpty(header)) { 
+            headerField.gameObject.SetActive(false); 
+        }
+        else { 
+            headerField.gameObject.SetActive(true); 
+            headerField.text = header; 
+        }
+        
         contentField.text = content;
 
         int headerLength = headerField.text.Length;
