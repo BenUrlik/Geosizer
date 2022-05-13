@@ -384,8 +384,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 32.91, y: -11.175}
-  m_SizeDelta: {x: 65.82, y: 22.35}
+  m_AnchoredPosition: {x: 51.28, y: -11.175}
+  m_SizeDelta: {x: 102.56, y: 22.35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &367506823
 MonoBehaviour:
@@ -407,7 +407,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Default Ball
+  m_text: Error
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1733,7 +1733,7 @@ MonoBehaviour:
     m_Left: 5
     m_Right: 0
     m_Top: 0
-    m_Bottom: 2
+    m_Bottom: 4
   m_ChildAlignment: 6
   m_Spacing: 5
   m_ChildForceExpandWidth: 0
@@ -1822,7 +1822,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 44.7}
+  m_SizeDelta: {x: 500, y: 67.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1286979414
 MonoBehaviour:
@@ -1837,7 +1837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   headerField: {fileID: 367506823}
-  contentField: {fileID: 367506823}
+  contentField: {fileID: 1972119717}
   layoutElement: {fileID: 1286979415}
   characterWrapLimit: 20
   rectTransform: {fileID: 0}
@@ -2793,8 +2793,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 148.26, y: -33.525}
-  m_SizeDelta: {x: 296.52, y: 22.35}
+  m_AnchoredPosition: {x: 250, y: -45.025}
+  m_SizeDelta: {x: 500, y: 45.35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1972119717
 MonoBehaviour:
@@ -2816,7 +2816,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Can only buy balls with 10 tokens. Can only have a max of 10.
+  m_text: Error
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

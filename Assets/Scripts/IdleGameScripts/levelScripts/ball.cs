@@ -31,7 +31,11 @@ public class ball : MonoBehaviour
         if(other.collider.tag == "block") {
             block blockScript = other.gameObject.GetComponent<block>();
             // Default ball collision
-            if(blockScript.hitCounter == 1.0f) { Destroy(other.gameObject); managerScript.collisionUpdate(1); }
+            if(blockScript.hitCounter == 1.0f) { 
+                Destroy(other.gameObject); 
+                managerScript.collisionUpdate(1); 
+                managerScript.blockDestroyed();
+            }
             else { blockScript.hitCounter--; managerScript.clickUpdate(); }
             
         }

@@ -51,9 +51,12 @@ public class manager : MonoBehaviour
 
     // Happens every time a ball collides with a block and when a player clicks to destroy a block
     public void collisionUpdate(float damage) {
-        blockCount -= damage;
         score += damage;
         moneyText.text = score.ToString();
+    }
+
+    public void blockDestroyed() {
+        --blockCount;
     }
 
     // Spawns a new ball

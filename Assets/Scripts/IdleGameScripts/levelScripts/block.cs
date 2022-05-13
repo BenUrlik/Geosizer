@@ -21,19 +21,23 @@ public class block : MonoBehaviour
     // Constantly update the block text to the current hitcounter
     void Update() { blockCountText.text = hitCounter.ToString(); }
 
-    // public void updateHitCount() {
-    //     hitCounter += 1 + managerScript.clickAssist; 
-    // }
-
     // Updates the block information when a player clicks one of the blocks
     // Used in the OnClick() Function of the blocks
     public void playerClick() {
+        float temp = hitCounter;
         hitCounter -= (1.0f + managerScript.clickAssist);
 
+        // If the block is destroyed by a player click:
+        // Update the score and destroy the block
         if(hitCounter <= 0.0f) {
-            managerScript.collisionUpdate(1 + managerScript.clickAssist);
+            managerScript.collisionUpdate(temp);
+            managerScript.blockDestroyed();
             Destroy(gameObject);
         }
-        else { managerScript.clickUpdate(); }
+        // Otherwise treat it like a ball collision
+        // And update the score
+        else { 
+            managerScript.collisionUpdate(1 + managerScript.clickAssist); 
+        }
     }
 }
