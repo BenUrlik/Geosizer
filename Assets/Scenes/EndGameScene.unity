@@ -325,20 +325,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Geosizer is an idle breakout game! The goal of this prototype is to idlely
-    sit by and complete as many levels as possible before clicking the win game button.
-    Try resizing the window while you are at it. (Window resizing still in progress)
-
-
-    Instructions:
-
-    -
-    Click on blocks to gain tokens.
-
-    - Use tokens to buy balls which will automatically
-    hit the blocks for you!
-
-    - Upgrade your clicks!'
+  m_text: 'Thanks for playing Geosizer! Im sure you spent a little time playing the
+    game and probably enjoying the chaos of some really interesting physics. I appreciate
+    all those who tried out this prototype. If you decide to play the game again
+    brag about the highest level you were able to achieve! '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

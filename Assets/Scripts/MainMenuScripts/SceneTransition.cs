@@ -6,17 +6,17 @@ using UnityEngine.SceneManagement;
 public class SceneTransition : MonoBehaviour
 {
     public void playScene() {
-        Debug.Log("Going to the Play Scene");
+        // Debug.Log("Going to the Play Scene");
         SceneManager.LoadScene("PlayScene");
     }
 
     public void mainScene() {
-        Debug.Log("Going to the Main Menu Scene");
+        // Debug.Log("Going to the Main Menu Scene");
         SceneManager.LoadScene("MainScene");
     }
         
     public void synopsisScene() {
-        Debug.Log("Going to the Main Menu Scene");
+        // Debug.Log("Going to the Main Menu Scene");
         SceneManager.LoadScene("SynopsisScene");
     }
     

@@ -20,7 +20,7 @@ public class levelSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(managerScript.blockCount == 0.0f) {
+        if(managerScript.blockCount <= 0.0f) {
             managerScript.blockCount = 6;
             ++managerScript.levelNum;
             managerScript.levelText.text = "Level " + managerScript.levelNum.ToString();

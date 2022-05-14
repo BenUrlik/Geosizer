@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class manager : MonoBehaviour
 {
@@ -9,6 +10,12 @@ public class manager : MonoBehaviour
     public Text moneyText; 
     public Text levelText;
     public float score;
+    public Text defBallText;
+    public Text superBallText;
+    public Text ultraBallText;
+    public Text leftUpText;
+    public GameObject toolTipButton;
+    public GameObject toolTipPanel;
 
     // Level Variables
     public float levelNum;
@@ -36,10 +43,14 @@ public class manager : MonoBehaviour
         clickAssist = 0.0f;
     }
 
+    // Upgrades the click ammount for the player
     public void clickUpgrade() { 
-        if(score >= 10 && clickAssist < 10) {
+        if(score >= 10 && clickAssist < 9) {
             ++clickAssist; 
             score -= 10;
+            moneyText.text = score.ToString();
+            string leftUpStr = leftUpText.text.Substring(0,6);
+            leftUpText.text = leftUpStr + " (" + clickAssist + ")";
         }
     }
 
@@ -55,6 +66,7 @@ public class manager : MonoBehaviour
         moneyText.text = score.ToString();
     }
 
+    // Decrements the blocks when one is destroyed
     public void blockDestroyed() {
         --blockCount;
     }
@@ -64,13 +76,11 @@ public class manager : MonoBehaviour
         if(score >= 10 && defBallCount < 10) {
             GameObject newBall = Instantiate(ball) as GameObject;
             newBall.transform.SetParent(panel.transform, false);
+            newBall.GetComponent<Rigidbody2D>().position = new Vector2(Screen.width/2, Screen.height/2);
             score -= 10;
             ++defBallCount;
-
-            // Attempting to update the button text - Not working cause buttons dont instantiate after Start()
-            // Text ballStr = defBallBut.GetComponent<Text>();
-            // Debug.Log(ballStr.text);
-            // defBallBut.Text.text = "Buy Ball: " + defBallCount.ToString(); 
+            string ballStr = defBallText.text.Substring(0,6);
+            defBallText.text = ballStr + " (" + defBallCount + ")";
         }
     }
 
@@ -81,8 +91,11 @@ public class manager : MonoBehaviour
             Image colorImage = newBall.GetComponent<Image>();
             colorImage.color = new Color32(255,0,0, 255);
             newBall.transform.SetParent(panel.transform, false);
+            newBall.GetComponent<Rigidbody2D>().position = new Vector2(Screen.width/2, Screen.height/2);
             score = score - 25;
             ++superBallCount;
+            string ballStr = superBallText.text.Substring(0,6);
+            superBallText.text = ballStr + " (" + superBallCount + ")";
         }
     }
 
@@ -93,8 +106,17 @@ public class manager : MonoBehaviour
             Image colorImage = newBall.GetComponent<Image>();
             colorImage.color = new Color32(0,255,0, 255);
             newBall.transform.SetParent(panel.transform, false);
+            newBall.GetComponent<Rigidbody2D>().position = new Vector2(Screen.width/2, Screen.height/2);
             score = score - 50;
             ++ultraBallCount;
+            string ballStr = ultraBallText.text.Substring(0,6);
+            ultraBallText.text = ballStr + " (" + ultraBallCount + ")";
+        }
+    }
+
+    public void endGame() {
+        if(score >= 10000) {
+            SceneManager.LoadScene("EndGameScene");
         }
     }
 }
